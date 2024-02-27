@@ -12,13 +12,12 @@ public class Gaulois {
 	}
 	
 	
-
-	public String getNom() {
+	public String getNom() { // getteur utile pour pouvoir appeler (exemple dans druide)
 		return nom;
 	}
 	
 	public void parler(String texte) {
-		System.out.println(prendreParole() + "« " + texte + "»");
+		System.out.println(prendreParole() + "« " + texte + "»"); //void car pas de return
 		
 	}
 
@@ -28,19 +27,46 @@ public class Gaulois {
 	}
 
 
+	public void frapper(Romain romain) {
+		System.out.println(nom + " envoie un grand coup dans la mâchoire de "
+		+ romain.getNom());
+		romain.recevoirCoup(force / 3);
+	}
+
+	
 
 	public String toString() {
-		return "Gaulois [nom=" + nom + ", force=" + force + ", effetPotion=" + effetPotion + "]";
+		return "Gaulois [nom=" + nom + ", force=" + force + ", effetPo²tion=" + effetPotion + "]";
 	}
 	
 	
 	public static void main(String[] args) { //caractere du perso de la classe
+		Gaulois asterix;
+		asterix = new Gaulois("asterix",4);
+		System.out.println(asterix);
+		
+		asterix.parler(" bonjour ");
+		
+		Romain felix = new Romain("felix", 4);
+		asterix.frapper(felix );
 		
 	}
 
 	
-
 }
+
+
+
+
+
+
+ 
+
+
+
+
+
+
 
 
 	
